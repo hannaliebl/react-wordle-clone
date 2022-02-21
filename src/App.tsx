@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+
+import Guess from "./Guess";
+
+const answer = "wight";
 
 function App() {
+  const [guessState, setGuessState] = useState<string[][]>([
+    ["a", "b", "c", "d", "e"],
+    ["d", "d", "d", "d", "g"],
+  ]);
+
+  const handleGuess = (guess: string, index: number, rowIndex: number) => {
+    let guessStateCopy = guessState.slice();
+    guessStateCopy[rowIndex].splice(index, 1, guess);
+    setGuessState(guessStateCopy);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header>Wordle Clone</header>
+      <Guess
+        onGuess={(g, i) => handleGuess(g, i, 0)}
+        guessed={false}
+        guess={guessState[0]}
+      />
+      <Guess
+        onGuess={(g, i) => handleGuess(g, i, 1)}
+        guessed={false}
+        guess={guessState[1]}
+      />
     </div>
   );
 }
