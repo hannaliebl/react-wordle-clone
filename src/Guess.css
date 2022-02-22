@@ -1,0 +1,33 @@
+.word-input {
+  border: 1px solid #ccc;
+  width: 28px;
+  height: 28px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: inline-block;
+  padding: 20px;
+  margin: 5px;
+}
+
+.letter {
+  width: 30px;
+  height: 30px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: inline-block;
+  padding: 20px;
+  margin: 5px;
+  background-color: black;
+}
+
+.yellow-letter {
+  background-color: yellow;
+}
+
+.green-letter {
+  background-color: green;
+}
+
+.gray-letter {
+  background-color: gray;
+}
