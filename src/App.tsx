@@ -78,7 +78,7 @@ function App() {
 
   const handleEnter = () => {
     const activeRowIndex = activeRows.indexOf(true);
-    const currentGuess = guessState[activeRowIndex].join("");
+    const currentGuess = guessState[activeRowIndex].join("").toLowerCase();
     if (currentGuess.length < 5) {
       setShowTooFewLettersAlert(true);
     } else if (!validGuesses.includes(currentGuess)) {
